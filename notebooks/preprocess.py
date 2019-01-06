@@ -9,14 +9,13 @@
  
 """
 import os
-import chardet
 import codecs
+
 
 def read_file(filename):
     """"""
-    with codecs.open(filename,"r", errors="ignore",) as f:
+    with codecs.open(filename, "r", errors="ignore",) as f:
         content = f.read()
-
     return content
 
 
@@ -56,3 +55,21 @@ def read_data(base_path):
     return data,labels
 
 
+def create_vocab(data):
+    """用数据生成词汇表
+
+    :param data: List[str]
+        数据
+    :return dict{str : int}
+        词对应的index
+    """
+    words = set()
+    for sentence in data:
+        for word in sentence.split():
+            words.add(word)
+
+    word2index = dict()
+    for i, word in enumerate(words):
+        word2index[word] = i
+
+    return word2index
