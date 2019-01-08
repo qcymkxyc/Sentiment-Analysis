@@ -1,12 +1,12 @@
-#!usr/bin/env python 
-# -*- coding:utf-8 _*-  
-""" 
+#!usr/bin/env python
+# -*- coding:utf-8 _*-
+"""
  @author:qcymkxyc
  @email:qcymkxyc@163.com
  @software: PyCharm
  @file: preprocess.py
  @time: 2019/1/1 18:07
- 
+
 """
 import os
 import codecs
@@ -14,7 +14,7 @@ import codecs
 
 def read_file(filename):
     """"""
-    with codecs.open(filename, "r", errors="ignore",) as f:
+    with codecs.open(filename, "r",encoding="gbk",errors="ignore",) as f:
         content = f.read()
     return content
 
@@ -29,7 +29,7 @@ def read_data(base_path):
     neg_path = os.path.join(base_path, "neg")
     pos_path = os.path.join(base_path, "pos")
 
-    data,labels = list(), list()
+    data, labels = list(), list()
     # neg文件夹读取
     for filename in os.listdir(neg_path):
         file_path = os.path.join(neg_path, filename)
@@ -52,7 +52,7 @@ def read_data(base_path):
             data.append(content)
             labels.append("pos")
 
-    return data,labels
+    return data, labels
 
 
 def create_vocab(data):
