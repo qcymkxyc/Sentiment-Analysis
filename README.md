@@ -20,6 +20,13 @@
 
 ### LSTM
 
+**参数设置**
+```
+embedding_unit = 200
+lstm_unit = 120
+hidden_units = [80, ]
+```
+
 **结构**
 
 ```
@@ -79,7 +86,13 @@ Epoch 40/40
 ```
 
 ### CNN
-
+**超参数**
+```
+embedding_size = 200
+conv_size = 5
+filters = 4
+hidden_units = [80, ]
+```
 **结构**
 
 ```
